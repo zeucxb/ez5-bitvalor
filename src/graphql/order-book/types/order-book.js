@@ -19,7 +19,7 @@ export default new GraphQLObjectType({
         },
       },
       type: new GraphQLList(OrderType),
-      resolve: (obj, { filter }) => {
+      resolve: (obj, { filter = {} }) => {
         const asks = obj.asks || [];
 
         return OrderBookCtrl.filterOrders(asks, filter);
@@ -32,7 +32,7 @@ export default new GraphQLObjectType({
         },
       },
       type: new GraphQLList(OrderType),
-      resolve: (obj, { filter }) => {
+      resolve: (obj, { filter = {} }) => {
         const bids = obj.bids || [];
 
         return OrderBookCtrl.filterOrders(bids, filter);

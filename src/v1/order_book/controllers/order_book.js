@@ -28,7 +28,7 @@ export default class OrderBookController {
    * @returns 
    * @memberof OrderBookController
    */
-  static filterOrders(orders = [], { exchange, price, btc_volume }) {
+  static filterOrders(orders = [], { exchange = '', price = 0, btc_volume = 0 }) {
     if (exchange) orders = FilterHelper.filterString(orders, 'exchange', exchange);
     if (price) orders = FilterHelper.filterRangeEqual(orders, 'price', price);
     if (btc_volume) orders = FilterHelper.filterRangeEqual(orders, 'btc_volume', btc_volume);
