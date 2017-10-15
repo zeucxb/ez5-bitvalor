@@ -31,7 +31,7 @@ export default class OrderBookController {
   static filterOrders(orders = [], { exchange, price, btc_volume }) {
     if (exchange) orders = FilterHelper.filterString(orders, 'exchange', exchange);
     if (price) orders = FilterHelper.filterRangeEqual(orders, 'price', price);
-    if (btc_volume) orders = FilterHelper.filterRange(orders, 'btc_volume', btc_volume);
+    if (btc_volume) orders = FilterHelper.filterRangeEqual(orders, 'btc_volume', btc_volume);
 
     return orders;
   }
